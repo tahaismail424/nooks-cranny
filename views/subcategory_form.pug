@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='name') Name:
+      input#name.form-control(type='text' placeholder='Name' name='name' required='true' value=(undefined===subcategory ? '' : subcategory.name) )
+    
+    div.form-group
+        label(for='category') Category: 
+        select#category.form-control(type='select', placeholder='Select category', name='category', required='true')
+          for category in categories 
+              if subcategory
+                  option(value=category._id selected=(category._id.toString()===subcategory.category._id.toString() ? 'selected' : false ) ) #{category.name}
+              else if currentCategory
+                  option(value=category._id selected=(category._id.toString()===currentCategory._id.toString() ? 'selected' : false ) ) #{category.name}
+              else
+                  option(value=category._id) #{category.name}
+    button.form-submit(type='submit') Submit
+   
+  if errors
+    ul.error-box
+      for error in errors
+        li!= error.msg

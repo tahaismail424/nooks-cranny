@@ -1,0 +1,64 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method='POST' enctype='multipart/form-data')
+    div.form-group
+      label(for='name') Name:
+      input#name.form-control(type='text' placeholder='Name' name='name' required='true' value=(undefined===item ? '' : item.name) )
+      label(for='description') Description: 
+      input#description.form-control(type='text' placeholder='Description' name='description' required='true' value=(undefined===item ? '' : item.description) )
+    div.form-group
+        label(for='price') Price: 
+        img(src='../assets/bell.png')
+        input#price.form-control(type='number' placeholder=0 name='price' required='true' value=(undefined===item ? 0 : item.price) )
+        label(for='stock') Stock: 
+        input#stock.form-control(type='number' placeholder=0 name='stock' required='true' value=(undefined===item ? 0 : item.stock) )
+    div.form-group
+        label(for='category') Category: 
+        select#category.form-control(type='select', placeholder='Select category', name='category', required='true', onchange=(`showSubcats(this)`))
+            each category in categories 
+                if currentCategory 
+                    option(value=(category.name + ' ' + category._id) selected=(category._id.toString()===currentCategory._id.toString() ? 'selected' : false ) ) #{category.name}
+                if item 
+                    option(value=(category.name + ' ' + category._id) selected=(category._id.toString()===item.category._id.toString() ? 'selected' : false ) ) #{category.name}
+                else 
+                    option(value=(category.name + ' ' + category._id)) #{category.name}
+        label(for='subcategory') Subcategory: 
+        select#subcategory.form-control(type='select', placeholder='Select subcategory', name='subcategory' required='true')
+            each subcategory in subcategories 
+                if item 
+                    option(style=(subcategory.category.name === item.category.name ? '' : 'display: none') class=(subcategory.category.name.split(' ').join('-') + '-subcat' + ' subcat-option') value=(subcategory.name + ' ' + subcategory._id) selected=(subcategory._id.toString()===item.subcategory._id.toString() ? 'selected' : false ) ) #{subcategory.name}
+                else 
+                    option(style='display: none' class=(subcategory.category.name.split(' ').join('-')  + '-subcat' + ' subcat-option') value=(subcategory.name + ' ' + subcategory._id)) #{subcategory.name}
+    div.form-group
+        label(for='image') Image: 
+        input#image.form-control-file(type='file' name='image' value=(file ? file.path : item ? item.imageURL : ''))
+        input#imageURL.form-control(type='text' style='display: none' value=(undefined===item ? '' : item.imageURL))
+    button.form-submit(type='submit') Submit
+
+  script.
+    function showSubcats(element) {
+
+        let catName = element
+        .childNodes
+        [element.selectedIndex]
+        .textContent
+        .split(' ')
+        .join('-');
+
+        let x = document.getElementsByClassName('subcat-option');
+        for (let i = 0; i < x.length; i++) {
+            x[i].style.display = 'none';
+        }
+        let y = document.getElementsByClassName(catName + '-subcat');
+        for (let j = 0; j < y.length; j++) {
+            y[j].style.display = 'block';
+        }
+    }
+
+  if errors
+    ul.error-box
+      for error in errors
+        li!= error.msg

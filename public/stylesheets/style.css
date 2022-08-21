@@ -1,0 +1,253 @@
+@font-face {
+  font-family: 'DFGB5BDC';
+  src: url('/assets/DFGB5BDC.TTF')
+}
+
+@font-face {
+  font-family: 'Fink Heavy';
+  src: url('/assets/FinkHeavy.ttf');
+}
+
+@font-face {
+  font-family: 'FOT Rodin Bokutoh';
+  src: url('/assets/FOT-RodinBokutoh\ Pro\ EB.otf');
+}
+
+@font-face {
+  font-family: 'FOT Seurat Pro';
+  src: url('/assets/FOT-Seurat\ Pro\ B.otf');
+}
+
+body {
+  background-color: #ffdb98;
+}
+
+.sidebar-nav {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.home-title {
+  margin: auto;
+  width: 900px;
+  display: block;
+}
+
+.container-fluid {
+  margin-top: 25px;
+}
+
+a {
+  color: #bc346d;
+}
+
+a:hover {
+  color: #bc346d;
+}
+
+.home-but a {
+  font-family: 'FOT Seurat Pro';
+  background-color: #bc346d;
+  color: white;
+  border-radius: 5px;
+  padding: 15px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #bc346d;
+}
+
+.home-but a:hover {
+  color: #bc346d;
+  background-color: white;
+  text-decoration: none;
+
+}
+
+
+
+.home-title {
+  font-family: 'DFGB5BDC';
+  color: #332e2e;
+}
+
+.title-leaf {
+  width: 100px;
+}
+
+.home-subtitle {
+  font-family: 'DFGB5BDC';
+  color: #e76c53;
+  display: block;
+  margin: auto;
+  text-align: center;
+  border-style: double;
+  border-color: #e76c53;
+  border-radius: 5px;
+  border-width: 15px;
+  background-color: white;
+  width: 900px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.inventory-data {
+  display: block;
+  margin: auto;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+
+.categories-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  gap: 30px;
+  height: 150px;
+}
+
+.cat-list {
+  list-style: none;
+
+}
+
+.cat-listing {
+  font-family: 'FOT Seurat Pro';
+  background-color: #bc346d;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border-color: #bc346d;
+  border-style: solid;
+  border-width: 7px;
+}
+
+.cat-listing:hover {
+  color: #bc346d;
+  background-color: white;
+  text-decoration: none;
+}
+
+h1 {
+  display: table;
+  margin: auto;
+  text-align: center;
+  font-family: 'FOT Rodin Bokutoh';
+  color: #e76c53;
+  background-color: white;
+  border-style: double;
+  border-radius: 5px;
+  border-width: 15px;
+  border-color: #e76c53;
+  padding: 10px;
+  font-size: 100px
+}
+
+.cat-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+.update-category a {
+  font-family: 'FOT Seurat Pro';
+  color: white;
+  background-color: #bc346d;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #bc346d;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.update-category a:hover {
+  color: #bc346d;
+  background-color: white;
+  text-decoration: none;
+}
+
+.item-displays {
+  display: flex;
+  gap: 30px;
+}
+
+.item-display {
+  background-color: #ffdb98;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #543725;
+  border-width: 10px;
+  border-bottom-width: 30px;
+}
+
+.new-item {
+  background-color: #ffdb98;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #543725;
+  border-width: 10px;
+  border-bottom-width: 30px;
+}
+
+.item-name {
+  margin: auto;
+  display: block;
+}
+
+.item-name a {
+  color: white;
+  background-color: #bc346d;
+  border-radius: 5px;
+  border-color: #bc346d;
+  border-width: 5px;
+  border-style: solid;
+  padding: 5px;
+}
+
+.delete-category a {
+  font-family: 'FOT Seurat Pro';
+  color: white;
+  background-color: #bc346d;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #bc346d;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.delete-category a:hover {
+  color: #bc346d;
+  background-color: white;
+  text-decoration: none;
+}
+
+.subnav-button {
+  font-family: 'FOT Seurat Pro';
+  border: none;
+  background-color: #543725;
+  color: #f2edea;
+}
+
+.new-subcat {
+  display: inline-block;
+  background-color: #f2edea;
+}
+
+.update-subcat {
+  display: inline-block;
+}
+
+.delete-subcat {
+  display: inline-block;
+}
+
+.new-item-image {
+  width: 200px;
+}
+
+

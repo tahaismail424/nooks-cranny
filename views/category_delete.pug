@@ -1,0 +1,27 @@
+extends layout 
+
+block content 
+    h1 Delete #{category.name}
+
+    if subcategories.length 
+
+        p #[strong Delete the following subcategories before attempting to delete this category.]
+
+        div.to-del-subcats
+
+            h4 Subcategories 
+
+            dl 
+            each subcategory in subcategories 
+                dt 
+                    p= subcategory.name 
+                
+    else 
+        p Do you really want to delete this category?
+
+
+        form(method='POST' action='')
+            div.form-group
+                input#categoryid.form-control(type='hidden', name='categoryid', required='true', value=category._id )
+            
+            button.btn.btn-primary(type='submit') Delete 

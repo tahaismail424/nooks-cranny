@@ -1,0 +1,23 @@
+extends layout
+
+block content
+
+  p.back-cat 
+    a(href=item.category.url) Back to #{item.category.name}
+
+  h1= item.name
+
+  div.item-box
+    img.big-item-image(src=item.imageURL)
+    div.item-info
+        p.item-name= item.name
+        p.item-desc= item.description
+        img.bell(src='/assets/bell.png')
+        p.item-price= item.price
+        p.item-stock= item.stock 
+    
+    p.update-item 
+        a(href=item.url + '/update') Update #{item.name}
+    p.delete-item
+        a(href=item.url + '/delete') Delete #{item.name}
+        

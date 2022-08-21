@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  img.home-title(src='/assets/nooks_cranny_logo.png')
+  h2.home-subtitle= subtitle
+  
+  if error 
+    p.inventory-data Error getting inventory data 
+  else 
+    p.inventory-data The inventory has the following categories and counts:
+
+    ul.categories-box
+      each category, index in categories 
+        li.cat-list
+          a.cat-listing(href=category.url) #[strong !{category.name}:] !{categoryCounts[index]}

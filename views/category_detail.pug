@@ -1,0 +1,48 @@
+extends layout 
+
+block content
+    h1= category.name
+    div.cat-bar
+        p.update-category 
+            a(href=category.url + '/update') Update !{category.name}
+        p.delete-category 
+            a(href=category.url + '/delete') Delete !{category.name}
+
+    div.subnav-bar
+        each subcategory in subcategories
+            button.subnav-button(onclick=(`openSubCat('${subcategory.name}')`)) !{subcategory.name}
+        p.new-subcat 
+            a(href=category.url + '/subcategory/create') New subcategory
+
+
+    each subcategory, index in subcategories
+    
+        div.subcategory(id=subcategory.name, style=(index==0 ? '' : 'display: none'))
+            p.update-subcat
+                a(href=category.url + '/subcategory/' + subcategory._id + '/update') Update !{subcategory.name}
+            p.delete-subcat 
+                a(href=category.url + '/subcategory/' + subcategory._id + '/delete') Delete !{subcategory.name}
+            
+            div.item-displays
+                each item in items[subcategory.name]
+                    div.item-display
+                        img.item-image(src=item.imageURL)
+                        p.item-name
+                            a(href=item.url)= item.name 
+                        p.item-price= item.price
+                div.new-item
+                    img.new-item-image(src='../assets/default_item.png')
+                    p.new-item-text 
+                        a(href=category.url + '/create') New item
+
+    script.
+        function openSubCat(subcategory) {
+            let i;
+            let x = document.getElementsByClassName('subcategory');
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = 'none';
+            }
+            document.getElementById(subcategory).style.display = 'block';
+        }
+    
+                    
